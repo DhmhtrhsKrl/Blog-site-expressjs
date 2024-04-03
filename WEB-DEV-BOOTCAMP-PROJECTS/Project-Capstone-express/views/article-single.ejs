@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") %>
+
+<%if(locals.title){%>
+    <h1> <%= title %> </h1>
+    <p>  <%= body %> </p>
+<%}%>
+
+<form action="/update" method="post">
+    <input type="hidden" name="id" value="<%= ar_id%>"> <!-- Assuming article ID is 1 -->
+    <button type="submit">Update</button>
+</form>
+
+<!-- Delete button -->
+<form action="/delete" method="post">
+    <input type="hidden" name="id" value="<%= ar_id%>"> <!-- Assuming article ID is 1 -->
+    <button type="submit">Delete</button>
+</form>
+
+
+<%- include("partials/footer.ejs") %>

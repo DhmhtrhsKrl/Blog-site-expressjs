@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+
+<%if(locals.articles){ %>
+  <h1>
+    Read the articles!
+  </h1> 
+  <ul>
+    <% for (let i = 0; i < articles.length; i++) { %>
+        <% article_link = "/article-single/" + i%>
+        <li><a href="<%=article_link%>"><%= articles[i].title; %></a></li>
+    <% }%>
+  </ul>
+<%}else{ %>
+   <h1> Write an article in the form below</h1>
+<%}%>
+<h1>Create an article </h1>
+<form action="/submit" method="POST">
+  <input type="text" name="title" class="feedback-input" placeholder="Title" />
+  <textarea class="feedback-input" name="article" placeholder="Article"></textarea>
+  <input type="submit" value="SUBMIT" />
+</form>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs") %>
+
+
+<%if(locals.id){%>
+    <form action="/submit-update" method="POST">
+        <input type="text" name="title" class="feedback-input" placeholder="Title" value="<%= title %>"/>
+        <textarea class="feedback-input" name="article" placeholder="Article">
+            <%= text %>
+        </textarea>
+        <input type="hidden" name="id" value="<%= id%>">
+        <input type="submit" value="SUBMIT" />
+      </form>
+<%}%>
+
+
+
+<%- include("partials/footer.ejs") %>
